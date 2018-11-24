@@ -1,0 +1,38 @@
+table tbody tr td a {
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+table {
+	text-align: center;
+}
+
+.contenedor-botones-gestionar-usuarios {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.contenedor-botones-gestionar-usuarios a {
+	margin: 10px;
+}
+
+.contenedor-botones-gestionar-usuarios a:hover {
+	background: #ddd;
+	color: #000;
+}
+
+.contenedor-botones-gestionar-usuarios a:active {
+	background: #ddd !important;
+	color: #000 !important;
+}
+
+table tbody tr .contenedor-btn-editar-eliminar .btn-editar {
+	color: #58BFDD;
+}
+
+table tbody tr .contenedor-btn-editar-eliminar .btn-eliminar {
+	color: #D9534F;
+}

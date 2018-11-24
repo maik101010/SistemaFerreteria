@@ -1,0 +1,16 @@
+.titulo-proveedores {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #000;
+	text-align: center;
+}
+
+.container p {
+	font-size: 20px;
+}
+
+.container img {
+	display: block;
+	margin: auto;
+	margin-bottom: 10px;
+}

@@ -1,0 +1,43 @@
+.contenedor-redes-sociales {
+	margin-top: 70px;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.contenedor-redes-sociales a {
+	font-size: 50px;
+	color: #000;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.contenedor-redes-sociales a:nth-child(2) {
+	color: #3b5998;
+}
+
+.contenedor-pagina {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+	flex-wrap: wrap;
+}
+
+.contenedor-pagina .contenedor-sidebar {
+	width: 20%;
+}
+
+.contenedor-pagina .contenedor-mapa {
+	width: 75%;
+}
+
+/* Mediaqueries */
+@media screen and (max-width: 800px) {
+	.contenedor-pagina .contenedor-sidebar {
+		width: 100%;
+	}
+
+	.contenedor-pagina .contenedor-mapa {
+		width: 100%;
+		margin-top: 20px;
+	}
+}

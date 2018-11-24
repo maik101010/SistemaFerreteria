@@ -1,0 +1,18 @@
+form select {
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px solid #ccc;
+}
+
+.btn-regresar {
+	display: block;
+	margin: 20px auto;
+	width: 10%;
+}
+
+@media screen and (max-width: 1000px) {
+	.btn-regresar {
+		width: 50%;
+	}
+}

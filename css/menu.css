@@ -1,0 +1,145 @@
+header {
+	background: #000;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 8000;
+}
+
+/*-----------------------Menu-----------------------*/
+.menu {
+	width: 90%;
+	max-width: 1700px;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+	/*--------------Enlaces Del Menu--------------*/
+.menu .enlaces {
+	display: inline-block;
+	text-align: right;
+}
+
+.menu .enlaces a {
+	color: #f2f2f2;
+	text-decoration: none;
+	display: inline-block;
+	outline: none;
+	padding: 1em;
+	text-align: center;
+	font-size: 1em;
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.menu .enlaces a:hover {
+	background: rgba(255,255,255,0.5);
+	color: rgba(0,0,0,0.99);
+
+	-webkit-box-shadow: 0 0 3px #f2f2f2;
+	-moz-box-shadow: 0 0 3px #f2f2f2;
+	-ms-box-shadow: 0 0 3px #f2f2f2;
+	-o-box-shadow: 0 0 3px #f2f2f2;
+	box-shadow: 0 0 3px #f2f2f2;
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.menu .enlaces i {
+	margin-right: 5px;
+}
+
+/*----------------------Logo----------------------*/
+.menu .logo {
+	width: 60px;
+	height: 60px;
+	display: block;
+	padding: 5px;
+}
+
+.menu .logo .letras {
+	text-decoration: none;
+	font-size: 1.5em;
+	color: #fff;
+}
+
+.menu .logo img {
+	border-radius: 50%;
+	display: block;
+	height: 100%;
+	width: 100%;
+	vertical-align: top;
+}
+
+/*---------------boton Menu---------------*/
+.menu .contenedor-btn-menu-responsive .btn-menu {
+	display: none;
+	color: #fff;
+	margin-top: 15px;
+	text-decoration: none;
+	font-size: 1.2em;
+}
+
+/*---------------Efectos Del Menu---------------*/
+.headroom {
+	-webkit-transition: transform 0.5s ease;
+	-o-transition: transform 0.5s ease;
+	transition: transform 0.5s ease;
+}
+
+.headroom--pinned {
+  	background: rgba(0,0,0,0.8);
+
+	-webkit-box-shadow: 0 0 10px #242427;
+	box-shadow: 0 0 10px #242427;
+
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+	-o-transform: translateY(0%);
+	transform: translateY(0%);
+}
+
+.headroom--unpinned {
+	-webkit-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	-o-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+/*---------------Menu Responsive---------------*/
+@media screen and (max-width: 1240px) {
+	body {
+		padding-top: 20px;
+	}
+
+	header .menu {
+		justify-content: space-between;
+		padding: 10px;
+	}
+
+	header .menu .contenedor-btn-menu-responsive .btn-menu {
+		display: inline-block;
+	}
+
+	header .menu .enlaces {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+}
+
+
+

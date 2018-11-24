@@ -1,0 +1,159 @@
+.titulo-registrarse {
+	margin-top: 70px;
+	color: #000;
+	text-align: center;
+}
+
+.frm-registrarse {
+	width: 40%;
+	padding: 10px;
+	margin: 20px auto;
+	display: block;
+	border-radius: 5px;
+	box-shadow: 0px 3px 10px rgba(0,0,0,0.5);
+	transition: all 0.3s ease-out;
+	background: #eee;
+}
+
+.frm-registrarse .campo-frm-registrarse {
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	color: rgba(64,64,2,0.8);
+	display: block;
+	font-size: 15px;
+	margin: 10px auto;
+	outline: none;
+	padding: 10px;
+	width: 100%;
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.frm-registrarse .campo-frm-registrarse:focus {
+	border: 2px solid rgba(64,64,2,0.8);
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.frm-registrarse textarea {
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	color: rgba(64,64,2,0.8);
+	display: block;
+	font-size: 15px;
+	margin: 10px auto;
+	outline: none;
+	padding: 10px;
+	width: 100%;
+	min-height: 150px;
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.frm-registrarse textarea:focus {
+	border: 2px solid rgba(64,64,2,0.8);
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.btn-registrarse {
+	background: transparent;
+	border: none;
+	display: block;
+	color: #000;
+	cursor: pointer;
+	font-size: 18px;
+	margin: 10px auto;
+	padding: 5px;
+	width: 80%;
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.btn-registrarse:hover {
+	background: rgba(0,0,0,0.8);
+	border-radius: 5px;
+	color: #fff;
+
+	-webkit-box-shadow: 0 0 3px rgba(64,64,2,0.8);
+	box-shadow: 0 0 3px rgba(64,64,2,0.8);
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.btn-borrar {
+	background: transparent;
+	border: none;
+	display: block;
+	cursor: pointer;
+	font-size: 18px;
+	margin: 10px auto;
+	padding: 5px;
+	width: 80%;
+	color: rgba(182,45,45,0.8);
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.btn-borrar:hover {
+	background: rgba(182,45,45,0.8);
+	border-radius: 5px;
+	color: #fff;
+
+	-webkit-box-shadow: 0 0 3px rgba(64,64,2,0.8);
+	box-shadow: 0 0 3px rgba(64,64,2,0.8);
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.btn-contrasenia {
+	background: transparent;
+	border: none;
+	display: block;
+	cursor: pointer;
+	font-size: 18px;
+	margin: 10px auto;
+	padding: 5px;
+	width: 80%;
+	color: rgba(120,15,35,0.8);
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+.btn-contrasenia:hover {
+	background: #8e94ad
+	border-radius: 5px;
+	color: #fff;
+
+	-webkit-box-shadow: 0 0 3px rgba(64,64,2,0.8);
+	box-shadow: 0 0 3px rgba(64,64,2,0.8);
+
+	-webkit-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+}
+
+/* Mediaqueries */
+@media screen and (max-width: 750px) {
+	.frm-registrarse {
+		width: 80%;
+	}
+}
