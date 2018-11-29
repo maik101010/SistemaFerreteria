@@ -12,11 +12,15 @@
           border: 2px solid #ccc;
           color: #757575;
         }
+         .btn-instertar-tema {
+            margin-left: 80%;
+            margin-bottom: 20px;
+         }
      </style>
       <?php include  "cosas-generales/links-generales.php"; ?>
       <link rel="stylesheet" href="css/view_uinsertar_umodificar_usuario.css">
 
-  <title>Tema</title>
+  <title>Venta</title>
 </head>
 <body>
      <?php  include "cosas-generales/header_usuario.php"?>
@@ -27,8 +31,6 @@
     	$conexion = $con;
       if (isset($_GET)) {
         $id = $_GET["id"];
-        //---Cargamos el valor diferido de la venta
-        //$valor = $_GET["valorDif"];
         $consulta = $conexion->query("SELECT * from producto where id = '$id'");
       }
         
@@ -36,21 +38,23 @@
       ?>
 
 
-    <h1 class="titulo-principal">Formulario De Venta</h1>
+    <h1 class="titulo-principal" style="color: red">Generar Venta</h1>
      <div class="contenedor-botones-gestionar-usuarios">
-        <a href="cargar_producto.php" class="btn btn-outline-dark btn-instertar-tema"><i class="fa fa-plus"></i>Agregar Producto</a>
+        <a href="cargar_producto.php" class="btn btn-outline-dark btn-instertar-tema" style="color: #0041FF; border-color: #3d73a9"><i class="fa fa-plus"></i>Agregar Producto</a>
     </div>
 
 			<!-- <a href="cargar_producto.php" >Agregar producto</a> -->
-			<?php foreach ($consulta as $row) {	?> 
-  			<!-- <form action="php/venta/insertarTemp.php" method="post" class="frm-registrarse" id="frm-registrarse" onsubmit="return validacion()"> -->
+      <?php   $cantidadStock ?>
+			<?php foreach ($consulta as $row) {	
+          $cantidadStock = $row["cantidadStock"];
+        ?> 
           <form action="php/venta/insertarTemp.php" method="post" class="frm-registrarse" id="frm-registrarse">
-  				<input type="text" class="campo-frm-registrarse" name="id_producto" id="id" value="<?php echo $row['id'] ?>">
-  				<input type="text" class="campo-frm-registrarse" placeholder="Referencia:" name="referencia" value="<?php echo $row['referencia'] ?>">
-  				<input type="text" class="campo-frm-registrarse" placeholder="Nombre:" name="nombre" id="nombre" value="<?php echo $row['nombre'] ?>">
-  		    <input type="text" class="campo-frm-registrarse" placeholder="Valor:" name="valor" id="valor" value="<?php echo $row['valor']?>">
-  		    <input type="text" class="campo-frm-registrarse" placeholder="Cantidad:" name="CantidadDisponible" id="cantidadDisponible" value="<?php echo $row['cantidadStock'] ?>">
-  		    <input type="text" class="campo-frm-registrarse" placeholder="Cantidad Solicitada:" name="cantidadSolicitada" id="cantidadSolicitada">
+  				<input type="hidden" class="campo-frm-registrarse" name="id_producto" id="id" value="<?php echo $row['id'] ?>"  >
+  				<input type="text" class="campo-frm-registrarse" placeholder="Referencia:" name="referencia" value="<?php echo $row['referencia'] ?>" Disabled>
+  				<input type="text" class="campo-frm-registrarse" placeholder="Nombre:" name="nombre" id="nombre" value="<?php echo $row['nombre'] ?>" Disabled>
+  		    <input type="text" class="campo-frm-registrarse" placeholder="Valor:" name="valor" id="valor" value="<?php echo $row['valor']?>" Disabled>
+  		    <input type="text" class="campo-frm-registrarse" placeholder="Cantidad:" name="CantidadDisponible" id="cantidadDis" value="<?php echo $row['cantidadStock'] ?>" Disabled>
+  		    <input type="text" class="campo-frm-registrarse" placeholder="Cantidad Solicitada:" name="cantidadSolicitada" id="cantidadSol">
   		    <input type="submit" class="btn-registrarse" id="btn-registrarse" value="Insertar">
   		    <input type="reset" class="btn-borrar" value="Borrar">
      		</form>
@@ -60,7 +64,7 @@
       <div>
     <?php 
       $conexion1 = $con;
-      $consulta = $conexion1->query("SELECT venta_temp.id as id_venta, producto.nombre, producto.marca, producto.valor, venta_temp.cantidadSolicitada  FROM venta_temp INNER JOIN producto on producto.id = venta_temp.producto_id order by producto.nombre");
+      $consulta = $conexion1->query("SELECT venta.id as id_venta, producto.nombre, producto.marca, producto.valor, producto.cantidadStock, venta.cantidadSolicitada, producto.id  as id_producto FROM venta INNER JOIN producto on producto.id = venta.producto_id where venta.estado = 0 order by producto.nombre ");
     ?>
                  <table class="table table-hover">
                     <thead>
@@ -73,9 +77,11 @@
                             <th scope="col">Total</th>
                             <th scope="col">Operación</th>
                         </tr>
+
                     </thead>
+                    <?php $contVenta = 0; ?>
                   <?php  foreach ($consulta as $row) { ?>
-          
+              
                           <tbody>
                               <tr>
                                   <td><?php echo $row['id_venta'] ?></td>
@@ -89,27 +95,35 @@
                                       $cantidad = $row['cantidadSolicitada'];
                                       $valorProducto = $row['valor'];
                                       $total = $valorProducto*$cantidad;
-                                      echo "$". $total;                                    
+                                      echo "$". $total;
+
+                                      $contVenta = $total+$contVenta;                                    
                                     ?>
                                   </td>
-                                    <td>
-                                      <a href="view_editar_cantidad.php?id=<?php echo $row['id_venta'] ?>">Editar Cantidad</a>
-                                    </td>
+                                  <td>
+                                      <a href="view_editar_cantidad.php?id=<?php echo $row['id_venta'] ?>&stock=<?php echo $row['cantidadStock'] ?>&cantidad_antigua=<?php echo $row['cantidadSolicitada'] ?>&id_producto=<?php echo $row['id_producto'] ?>">Editar Cantidad</a>
+                                  </td>
                               </tr>
                           </tbody>
+
+                         
                               
                <?php  } ?>
-
-
-          </table>
-    
+             </table>
+              <h5>Total Venta: <?php echo "$ ".$contVenta; ?></h5>
+              <style type="text/css">
+                .inhabilitado{
+                  color:#ccc;
+                  cursor:default;
+                }
+              </style>
+              <a href="reporte_venta.php" id="habilitar" class="btn btn-outline-dark btn-instertar-tema" style="color: #0041FF; border-color: #3d73a9" target="_blank">Imprimir Venta</a>
+              <a id="boton" href="php/venta/insertarVenta.php" class="btn btn-outline-dark btn-instertar-tema" style="color: #0041FF; border-color: #3d73a9" >Realizar Venta</a>
+              
       </div>
    
-    <?php include "cosas-generales/footer.php"; ?>
-
     <?php include "cosas-generales/scripts-generales.php"; ?>
     <script type="text/javascript">
-    
       function validacion(){
         var cantidad = document.getElementById("cantidadDada").value;
         var cantidadDisponible = document.getElementById("cantidadDisponible").value;
@@ -122,6 +136,25 @@
         }
     }
 
+    </script>
+
+    <script type="text/javascript">
+      $("#boton").hide();
+      $('#habilitar').click(function(){
+        $("#boton" ).show();     
+        });
+    </script>
+
+    <script type="text/javascript">
+      $('#frm-registrarse').submit(function(event) {
+        var cantidadSol = parseInt($("#cantidadSol").val());
+        var cantidadDis = parseInt($("#cantidadDis").val());
+        if (cantidadSol>cantidadDis) {
+          alert("La cantidad solicitada no puede ser mayor");
+          event.preventDefault();  
+        }
+        
+      });
 
     </script>
   

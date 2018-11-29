@@ -18,7 +18,8 @@
 
     $total = $valor - $cantidad;
 
-	$sentencia = $conexion->prepare("INSERT INTO venta_temp (cantidadSolicitada, fecha, producto_id) VALUES (?,?,?)");
+    $estado = 0;
+	$sentencia = $conexion->prepare("INSERT INTO venta (cantidadSolicitada, fecha, producto_id, estado) VALUES (?,?,?,?)");
 
 	$sentencia2 = $conexion2->prepare("UPDATE producto SET cantidadStock = ? where id = '$producto_id'");
 
@@ -26,14 +27,15 @@
 	$sentencia->bindParam(1, $cantidad);
 	$sentencia->bindParam(2, $fecha);
 	$sentencia->bindParam(3, $producto_id);
+	$sentencia->bindParam(4, $estado);
 
 	$sentencia2->bindParam(1, $total);
 	
 	if ($sentencia->execute() && $sentencia2->execute()) {
 			// echo "Insertado";
-			header("Location: ../../view_venta.php?id=".$producto_id. "&valorDif=".$valor);
+			//header("Location: ../../view_venta.php?id=".$producto_id);
 
-			//header("Location: ../../view_venta.php");
+			header("Location: ../../view_venta.php");
 	}else{
 			 echo "Ocurrio un error";
 			//header("Location: index.php");

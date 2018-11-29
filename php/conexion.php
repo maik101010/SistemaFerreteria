@@ -2,7 +2,7 @@
 try{
 	$usuario = "root";
 	$password = "";
-	$con = new PDO('mysql:host=localhost;dbname=ferreteria', $usuario, $password);
+	$con = new PDO('mysql:host=localhost;dbname=ferreteria1', $usuario, $password);
 
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

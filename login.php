@@ -15,7 +15,7 @@
 <body>
     
     <?php// include "cosas-generales/header_usuario.php"; ?>
-    <h1 class="titulo-iniciar-sesion">Iniciar Sesión</h1>
+    <h1 class="titulo-iniciar-sesion" style="color: red">Iniciar Sesión</h1>
 
     <form action="php/consultar_usuario.php" method="post" class="frm-iniciar-sesion" id="frm-iniciar-sesion">
         <input type="text" class="campo-frm-iniciar-sesion" placeholder="Email: " name="email">
@@ -24,7 +24,9 @@
         <input type="submit" class="btn-iniciar-sesion" id="btn-entrar-iniciar-sesion" value="Entrar">
         <input type="reset" value="Borrar" class="btn-borrar">
     </form>
-
+    <center>
+    <a href="view_recuperar_contrasenia.php">¿Olvidó su contraseña?</a>
+    </center>
     
     <?php include "cosas-generales/footer.php"; ?>
 

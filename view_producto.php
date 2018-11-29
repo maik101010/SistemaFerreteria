@@ -28,15 +28,15 @@
     <?php include "cosas-generales/links-generales.php"; ?>
     <link rel="stylesheet" href="css/view_gestionar_tema_estilos.css">
 
-  <title>Tema</title>
+  <title>Productos</title>
 </head>
 <?php include "cosas-generales/header_usuario.php"; ?>
 <body>
     
-    <h1 class="titulo-principal">Gestionar Producto</h1>
+    <h1 class="titulo-principal" style="color: red">Gestionar Producto</h1>
 
 
-    <a href="view_producto_insertar.php" class="btn btn-outline-dark btn-instertar-tema">Nuevo registro</a>
+    <a href="view_producto_insertar.php" class="btn btn-outline-dark btn-instertar-tema" style="color: #0041FF; border-color: #3d73a9"><i class="fa fa-plus"></i>Nuevo registro</a>
     
     <?php 
         include "php/conexion.php";
@@ -47,6 +47,7 @@
 
         ?>
         <!-- Empieza la tabla             -->
+
         <div class="table-responsive table-hover container">
             <table class="table">
                 <thead>
@@ -88,7 +89,6 @@
             <!-- Termina la tabla -->
             </table> 
         </div>
-          <a href="view_usuario.php" class="btn btn-outline-dark btn-instertar-tema"><i class="fa fa-chevron-left"></i> Regresar</a>
              
 
     <?php include "cosas-generales/footer.php"; ?>

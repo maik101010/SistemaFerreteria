@@ -28,6 +28,10 @@
  		include "php/conexion.php";
 		$conexion = $con;      
         $id = $_GET["id"];
+        $id_producto = $_GET["id_producto"];
+
+        $stockActual = $_GET["stock"];
+        $cantidad_antigua = $_GET["cantidad_antigua"];
         $consulta = $conexion->query("SELECT * from venta_temp where id = '$id'");	      
       ?>
 
@@ -35,9 +39,12 @@
     <h1 class="titulo-principal">Editar Cantidad</h1>
  		<?php foreach ($consulta as $row) {?>
 			<form action="php/venta/editarCantidad.php" method="post" class="frm-registrarse">
-         	    <input class="campo-frm-registrarse" type="hidden" name="id" value="<?php echo $row['id'] ?>">
-                <input class="campo-frm-registrarse" style="text-align: center; margin:0px auto; display:block;" type="text" placeholder="Cantidad:" name="cantidad" value="<?php echo $row['cantidadSolicitada'] ?>">
-                <input type="hidden" name="valorAntiguo" value="<?php echo $valor ?>">
+     	      <input class="campo-frm-registrarse" type="hidden" name="id" value="<?php echo $row['id'] ?>">
+            <input class="campo-frm-registrarse" type="hidden" name="id_producto" value="<?php echo $id_producto ?>">
+            <input class="campo-frm-registrarse" type="hidden" name="cantidad_antigua" value="<?php echo $cantidad_antigua ?>">
+            <input class="campo-frm-registrarse" type="hidden" name="stockActual" value="<?php echo $stockActual ?>">
+            <input class="campo-frm-registrarse" type="text" style="text-align: center; margin:0px auto; display:block;"  placeholder="Cantidad:" name="cantidad" value="<?php echo $row['cantidadSolicitada'] ?>">
+                
   		    	<input type="submit" class="btn-registrarse" id="btn-registrarse" value="Insertar">
             </form>
 		<?php } ?>

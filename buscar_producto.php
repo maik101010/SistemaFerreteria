@@ -27,7 +27,7 @@
                                   <td><?php // echo $row['descripcion'] ?></td> -->
                                  
                                   <td>
-                                      <a href="view_venta.php?id=<?php echo $row['id'] ?>">Agregar<i class="fa fa-eye"></i></a>
+                                      <a href="view_venta.php?id=<?php echo $row['id'] ?>"><i class="fa fa-plus"></i> Agregar</a>
                                       
                                   </td>
                               </tr>

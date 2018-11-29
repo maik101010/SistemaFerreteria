@@ -16,7 +16,6 @@
   include "php/conexion.php";
 
   $conexion = $con;
-  //$id_tipo = $_POST["id_tipo_producto"];
   $consulta = $conexion->query("SELECT * FROM producto WHERE estado=1");
 ?>
 <?php header('Content-Type: text/html; charset=UTF-8'); ?>
@@ -26,7 +25,8 @@
     <div class="row contenedor-tabla-busqueda">
       <div class="contenedor-busqueda col-md-4">
         <br><br><br>
-       <input type="text" id="buscar" placeholder="Buscar Producto">
+        <label>Buscar producto: </label>
+       <input type="text" id="buscar" placeholder="Nombre ">
        <div id="resultado"></div>
       </div>
 
@@ -61,7 +61,7 @@
                       <td><?php echo $row['cantidadStock'] ?></td>
 
                       
-                      <td><a href="view_venta.php?id=<?php echo $row['id'] ?>">Agregar</a></td>
+                      <td><a href="view_venta.php?id=<?php echo $row['id'] ?>"><i class="fa fa-plus">Agregar</a></td>
                      
                   </tr>
               </tbody>

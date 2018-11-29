@@ -33,7 +33,7 @@
 <?php include "cosas-generales/header_usuario.php"; ?>
 <body>
     
-    <h1 class="titulo-principal">Gestionar Usuario</h1>   
+    <h1 class="titulo-principal" style="color: red">Gestionar Usuario</h1>   
     <?php 
         include "php/conexion.php";
 
@@ -57,12 +57,12 @@
                     <tbody>
                         <tr>
                             <td><?php echo $row['usuario'] ?></td>
-                            <td><a href="view_form_usuario.php?id=<?php echo $row["id"] ?>">Editar Contraseña</a></td>
+                            <td><a href="view_form_usuario.php?id=<?php echo $row["id"] ?>"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
                         </tr>
                     </tbody>
                     
             <?php  } ?>
-            <!-- Termina la tabla -->
+            
             </table> 
         </div>
             

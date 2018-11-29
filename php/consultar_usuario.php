@@ -26,10 +26,11 @@ $conexion = $con;
 		}
 		
 		if ($pass == $contrasenia) {
-			$_SESSION["usuario"] = $user;	
+			//$_SESSION["usuario"] = $user;	
 			header("location:../index.php");
 		}else{
-			echo "Invalidado";
+			echo "<script>alert('Usuario y/o contraseña incorrectos');</script>";
+		echo "<script>window.location.href = '../login.php';</script>";
 		}
 	}else{
 		echo "Faltan algunos datos";
